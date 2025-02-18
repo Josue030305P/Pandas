@@ -35,7 +35,8 @@ titanic.dropna(subset=['Age'])
   # 7- Mostrar le edad media de las mujeres que viajaban en cada clase
 titanic[titanic.Sex == 'female'].groupby('Pclass')['Age'].mean()
   # 8- Añadir una nueva columna booleana oara ver si el pasajero era menor o mayor de edad
-  
+#   titanic['Adulto'] = titanic['Age'] >= 18
+# titanic.head()
   # 9- Mostrar el porcentaje de menores y mayores de edad que sobrevivieron en cada clase
-
+titanic.groupby(['Adulto','Pclass'])['Survived'].value_counts(normalize=True) * 100
   
